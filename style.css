@@ -211,3 +211,23 @@ h1::before {
   text-transform: uppercase;
   color: var(--muted);
 }
+
+.stats {
+  margin: 0;
+}
+.stats div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+.stats dt {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.stats dd {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
