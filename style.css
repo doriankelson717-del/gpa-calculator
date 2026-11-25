@@ -323,3 +323,68 @@ h1::before {
     align-items: end;
   }
 }
+
+.course::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 18px;
+  bottom: 18px;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--line);
+  transition: background 0.4s var(--ease);
+}
+.course[data-state="validated"]::before {
+  background: var(--good);
+}
+.course[data-state="failed"]::before {
+  background: var(--bad);
+}
+
+.res {
+  grid-area: res;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 3px;
+}
+.grade {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.course[data-state="failed"] .grade {
+  color: var(--bad);
+}
+.total {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+.badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.course[data-state="validated"] .badge {
+  background: var(--good-bg);
+  color: var(--good);
+}
+.course[data-state="failed"] .badge {
+  background: var(--bad-bg);
+  color: var(--bad);
+}
