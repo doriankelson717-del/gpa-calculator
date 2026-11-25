@@ -137,3 +137,12 @@ main {
     top: 28px;
   }
 }
+
+/*Summary */
+.summary {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 26px 24px;
+  box-shadow: var(--shadow);
+}
