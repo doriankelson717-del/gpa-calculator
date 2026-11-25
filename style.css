@@ -315,3 +315,11 @@ h1::before {
   font-size: 1rem;
   color: var(--ink);
 }
+
+@media (min-width: 640px) {
+  .course {
+    grid-template-columns: 1fr 78px 78px 78px 132px 42px;
+    grid-template-areas: "name cr ca ex res del";
+    align-items: end;
+  }
+}
