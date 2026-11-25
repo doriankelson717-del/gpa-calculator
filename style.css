@@ -275,3 +275,43 @@ h1::before {
 .sem-name:focus {
   padding-left: 12px;
 }
+
+/*Course row*/
+.course {
+  position: relative;
+  display: grid;
+  gap: 12px;
+  padding: 18px 0 18px 16px;
+  border-top: 1px solid var(--line);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: "name name name del" "cr ca ex res";
+}
+
+.f-name {
+  grid-area: name;
+}
+.f-cr {
+  grid-area: cr;
+}
+.f-ca {
+  grid-area: ca;
+}
+.f-ex {
+  grid-area: ex;
+}
+.course label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.course label input {
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 1rem;
+  color: var(--ink);
+}
