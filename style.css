@@ -405,3 +405,32 @@ h1::before {
   border-color: var(--bad-bg);
   background: var(--bad-bg);
 }
+
+/* Semester footer */
+.sem-foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.sem-stats {
+  display: flex;
+  gap: 28px;
+}
+.sem-stats span {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.sem-stats strong {
+  display: block;
+  font-size: 1.3rem;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--ink);
+  font-weight: 600;
+}
