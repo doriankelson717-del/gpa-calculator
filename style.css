@@ -116,3 +116,24 @@ main {
 .course {
   animation: fade 0.35s var(--ease) both;
 }
+
+/*Layout*/
+.layout {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 20px 16px 48px;
+  display: grid;
+  gap: 18px;
+}
+@media (min-width: 860px) {
+  .layout {
+    grid-template-columns: 330px 1fr;
+    align-items: start;
+    padding: 44px 28px 64px;
+    gap: 28px;
+  }
+  .summary {
+    position: sticky;
+    top: 28px;
+  }
+}
