@@ -165,3 +165,49 @@ h1::before {
   background: var(--accent);
   box-shadow: 0 0 0 4px var(--accent-soft);
 }
+
+.ring {
+  position: relative;
+  width: 196px;
+  margin: 0 auto 26px;
+}
+.ring svg {
+  width: 100%;
+  display: block;
+  transform: rotate(-90deg);
+}
+.ring circle {
+  fill: none;
+  stroke-width: 6;
+}
+.ring-bg {
+  stroke: var(--line);
+}
+.ring-fill {
+  stroke: var(--accent);
+  stroke-linecap: round;
+  stroke-dasharray: 326.73;
+  stroke-dashoffset: 326.73;
+  filter: drop-shadow(0 0 5px var(--accent-soft));
+  transition: stroke-dashoffset 1s var(--ease);
+}
+.ring-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ring-text strong {
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+.ring-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
