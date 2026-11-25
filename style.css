@@ -249,3 +249,29 @@ h1::before {
   margin-bottom: 18px;
   box-shadow: var(--shadow);
 }
+
+.sem-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 0 8px;
+}
+.sem-name {
+  flex: 1;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: transparent;
+  border-color: transparent;
+  padding-left: 0;
+}
+.sem-name::placeholder {
+  color: var(--ink);
+  opacity: 0.85;
+}
+.sem-name:hover {
+  border-color: var(--line);
+  padding-left: 12px;
+}
+.sem-name:focus {
+  padding-left: 12px;
+}
