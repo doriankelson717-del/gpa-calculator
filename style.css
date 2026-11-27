@@ -496,3 +496,24 @@ input[type="number"]::-webkit-inner-spin-button {
 .ghost:active {
   transform: scale(0.97);
 }
+
+.add-sem {
+  width: 100%;
+  padding: 15px;
+  font-weight: 600;
+  color: var(--accent-ink);
+  background: var(--accent);
+  border: 0;
+  border-radius: 16px;
+  box-shadow: 0 10px 24px -12px var(--accent);
+  transition:
+    transform 0.25s var(--ease),
+    box-shadow 0.25s var(--ease);
+}
+.add-sem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px -12px var(--accent);
+}
+.add-sem:active {
+  transform: scale(0.99);
+}
