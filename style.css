@@ -711,3 +711,39 @@ select:focus {
   inset: 0;
   pointer-events: none;
 }
+
+/* Grades flying up the screen */
+.chip {
+  position: absolute;
+  left: var(--x);
+  bottom: -70px;
+  padding: 7px 14px;
+  font-size: var(--s);
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  animation: chipFly var(--d) linear var(--delay) infinite;
+}
+.chip.good {
+  color: var(--good);
+}
+@keyframes chipFly {
+  0% {
+    transform: translate(0, 0) rotate(var(--r0));
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  85% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(var(--dx), -118vh) rotate(var(--r1));
+    opacity: 0;
+  }
+}
