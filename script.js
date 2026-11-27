@@ -61,3 +61,13 @@ function calculateCGPA(semesters) {
 
 const newCourse = () => ({ name: "", credits: "", ca: "", exam: "" });
 const newSemester = () => ({ name: "", courses: [newCourse()] });
+
+const STORAGE_KEY = "gpa-calculator-data";
+
+function saveState() {
+    try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch (err) {
+        console.warn("Could not save:", err);
+    }
+}
