@@ -185,3 +185,17 @@ function updateResults() {
     saveState(); // auto-save after every change
     updateTarget();
 }
+
+function field(id) { return document.getElementById(id); }
+
+function updateTarget() {
+    const row = field("target-row"), note = field("target-note");
+    const target = profile ? parseFloat(profile.target) : NaN;
+    if (!Number.isFinite(target)) { row.hidden = true; note.textContent = ""; return; }
+    row.hidden = false;
+    field("target-val").textContent = target.toFixed(2);
+    const { gpa } = calculateCGPA(state.semesters);
+    note.textContent = gpa === null ? ""
+        : gpa >= target ? "You’ve reached your target CGPA. Well done!"
+            : `${(target - gpa).toFixed(2)} below your target CGPA.`;
+}
