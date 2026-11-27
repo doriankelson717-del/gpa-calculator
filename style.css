@@ -910,3 +910,16 @@ select:focus {
       0 0 0 12px transparent;
   }
 }
+
+.splash-note {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+  animation: fade 0.9s var(--ease) 1.7s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sky {
+    display: none;
+  }
+}
