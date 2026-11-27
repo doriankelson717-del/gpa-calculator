@@ -115,3 +115,10 @@ function saveProfile() {
 }
 
 let profile = loadProfile();
+
+/* Rendering */
+const $sems = document.getElementById("semesters");
+const RING_LENGTH = 326.73; // circumference of the SVG ring (r = 52)
+
+const esc = s => String(s).replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
+const fmt = n => (n === null ? "–" : n.toFixed(2));
