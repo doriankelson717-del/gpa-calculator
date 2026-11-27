@@ -35,3 +35,22 @@ function evaluateCourse(c) {
         validated: total >= VALIDATION_MARK
     };
 }
+
+// GPA = sum(points x credits) / sum(credits)
+
+function calculateGPA(courses) {
+    let weighted = 0, attempted = 0, validatedCredits = 0, validatedCount = 0;
+    courses.forEach(c => {
+        const r = evaluateCourse(c);
+        if (!r) return;
+        weighted += r.points * r.credits;
+        attempted += r.credits;
+        if (r.validated) { validatedCredits += r.credits; validatedCount++; }
+    });
+    return {
+        gpa: attempted ? weighted / attempted : null,
+        attempted,
+        validatedCredits,
+        validatedCount
+    };
+}
