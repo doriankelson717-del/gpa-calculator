@@ -159,3 +159,29 @@ function render() {
     </section>`).join("");
     updateResults();
 }
+function updateResults() {
+    state.semesters.forEach((s, si) => {
+        s.courses.forEach((c, ci) => {
+            const row = document.querySelector(`[data-row="${si}-${ci}"]`);
+            const r = evaluateCourse(c);
+            row.dataset.state = !r ? "empty" : r.validated ? "validated" : "failed";
+            row.querySelector(".res").innerHTML = r
+                ? `<span class="grade">${r.letter}</span><span class="total">${r.total} / 100</span><span class="badge">${r.validated ? "Validated" : "Not validated"}</span>`
+                : "";
+        });
+        const t = calculateGPA(s.courses);
+        document.querySelector(`[data-gpa="${si}"]`).textContent = fmt(t.gpa);
+        document.querySelector(`[data-vcr="${si}"]`).textContent = t.validatedCredits;
+    });
+
+    const all = calculateCGPA(state.semesters);
+    document.getElementById("cgpa").textContent = fmt(all.gpa);
+    document.getElementById("credits-attempted").textContent = all.attempted;
+    document.getElementById("credits-validated").textContent = all.validatedCredits;
+    document.getElementById("courses-validated").textContent = all.validatedCount;
+    document.getElementById("ring-fill").style.strokeDashoffset =
+        RING_LENGTH * (1 - (all.gpa || 0) / 4);
+
+    saveState(); // auto-save after every change
+    updateTarget();
+}
