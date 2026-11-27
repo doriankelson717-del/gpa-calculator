@@ -54,3 +54,7 @@ function calculateGPA(courses) {
         validatedCount
     };
 }
+
+function calculateCGPA(semesters) {
+    return calculateGPA(semesters.flatMap(s => s.courses));
+}
