@@ -122,3 +122,40 @@ const RING_LENGTH = 326.73; // circumference of the SVG ring (r = 52)
 
 const esc = s => String(s).replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
 const fmt = n => (n === null ? "–" : n.toFixed(2));
+
+function render() {
+    $sems.innerHTML = state.semesters.map((s, si) => `
+    <section class="card">
+      <div class="sem-head">
+        <input class="sem-name" data-s="${si}" data-f="name" placeholder="Semester ${si + 1}" value="${esc(s.name)}" aria-label="Semester name">
+        ${state.semesters.length > 1 ? `<button class="ghost" data-act="delSem" data-s="${si}">Remove</button>` : ""}
+      </div>
+
+      ${s.courses.map((c, ci) => `
+        <div class="course" data-state="empty" data-row="${si}-${ci}">
+          <label class="f-name">Course
+            <input data-s="${si}" data-c="${ci}" data-f="name" placeholder="e.g. MAT 202" value="${esc(c.name)}">
+          </label>
+          <label class="f-cr">Credits
+            <input type="number" inputmode="decimal" min="1" data-s="${si}" data-c="${ci}" data-f="credits" value="${esc(c.credits)}">
+          </label>
+          <label class="f-ca">CA /${MAX_CA}
+            <input type="number" inputmode="decimal" min="0" max="${MAX_CA}" data-s="${si}" data-c="${ci}" data-f="ca" value="${esc(c.ca)}">
+          </label>
+          <label class="f-ex">Exam /${MAX_EXAM}
+            <input type="number" inputmode="decimal" min="0" max="${MAX_EXAM}" data-s="${si}" data-c="${ci}" data-f="exam" value="${esc(c.exam)}">
+          </label>
+          <div class="res"></div>
+          <button class="ghost del" data-act="delCourse" data-s="${si}" data-c="${ci}" aria-label="Remove course">✕</button>
+        </div>`).join("")}
+
+      <div class="sem-foot">
+        <button class="ghost" data-act="addCourse" data-s="${si}">Add course</button>
+        <div class="sem-stats">
+          <span>GPA<strong data-gpa="${si}">–</strong></span>
+          <span>Credits validated<strong data-vcr="${si}">0</strong></span>
+        </div>
+      </div>
+    </section>`).join("");
+    updateResults();
+}
