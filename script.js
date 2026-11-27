@@ -58,3 +58,6 @@ function calculateGPA(courses) {
 function calculateCGPA(semesters) {
     return calculateGPA(semesters.flatMap(s => s.courses));
 }
+
+const newCourse = () => ({ name: "", credits: "", ca: "", exam: "" });
+const newSemester = () => ({ name: "", courses: [newCourse()] });
