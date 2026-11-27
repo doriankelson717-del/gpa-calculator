@@ -94,3 +94,24 @@ function loadState() {
 }
 
 const state = loadState() || { semesters: [newSemester()] };
+
+const PROFILE_KEY = "gpa-calculator-profile";
+
+function loadProfile() {
+    try {
+        const p = JSON.parse(localStorage.getItem(PROFILE_KEY));
+        return p && p.name ? p : null;
+    } catch (err) {
+        return null;
+    }
+}
+
+function saveProfile() {
+    try {
+        localStorage.setItem(PROFILE_KEY, JSON.stringify(profile));
+    } catch (err) {
+        console.warn("Could not save profile:", err);
+    }
+}
+
+let profile = loadProfile();
