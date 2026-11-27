@@ -71,3 +71,26 @@ function saveState() {
         console.warn("Could not save:", err);
     }
 }
+
+function loadState() {
+    try {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+        if (!saved || !Array.isArray(saved.semesters) || !saved.semesters.length) return null;
+        // every field is rebuild as a clean string so bad or old data can't break the page.
+        return {
+            semesters: saved.semesters.map(s => ({
+                name: String(s.name ?? ""),
+                courses: (Array.isArray(s.courses) && s.courses.length ? s.courses : [{}]).map(c => ({
+                    name: String(c.name ?? ""),
+                    credits: String(c.credits ?? ""),
+                    ca: String(c.ca ?? ""),
+                    exam: String(c.exam ?? "")
+                }))
+            }))
+        };
+    } catch (err) {
+        return null;
+    }
+}
+
+const state = loadState() || { semesters: [newSemester()] };
