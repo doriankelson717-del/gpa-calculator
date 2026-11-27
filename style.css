@@ -792,3 +792,33 @@ select:focus {
     opacity: 0;
   }
 }
+
+/* Graduation cap drifting*/
+.cap {
+  position: absolute;
+  left: 0;
+  top: 22%;
+  width: 56px;
+  color: var(--good);
+  opacity: 0;
+  animation: capFly 17s ease-in-out 2.5s infinite;
+}
+@keyframes capFly {
+  0% {
+    transform: translate(105vw, 8vh) rotate(24deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.95;
+  }
+  45% {
+    transform: translate(45vw, -6vh) rotate(-14deg);
+  }
+  90% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate(-20vw, 12vh) rotate(28deg);
+    opacity: 0;
+  }
+}
