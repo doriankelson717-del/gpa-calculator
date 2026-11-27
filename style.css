@@ -583,3 +583,32 @@ code {
   box-shadow: var(--shadow);
   animation: rise 0.7s var(--ease) both;
 }
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.eyebrow::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+.welcome-card h2 {
+  margin: 4px 0 0;
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.lead {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
