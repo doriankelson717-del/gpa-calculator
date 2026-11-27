@@ -434,3 +434,44 @@ h1::before {
   color: var(--ink);
   font-weight: 600;
 }
+
+/*Inputs and buttons*/
+input {
+  width: 100%;
+  min-width: 0;
+  padding: 11px 12px;
+  background: var(--field);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    background 0.2s,
+    padding 0.2s;
+}
+input::placeholder {
+  color: var(--muted);
+  opacity: 0.7;
+}
+input:hover {
+  border-color: var(--line);
+}
+input:focus {
+  outline: none;
+  background: var(--card);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+input.invalid {
+  border-color: var(--bad);
+  box-shadow: 0 0 0 4px var(--bad-bg);
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
